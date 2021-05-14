@@ -1,0 +1,442 @@
+계정(account)
+id : ace
+pw : 1234	
+사용DB : acedb
+
+mysql> create user ace@'%' identified by'1234';
+
+@ 이메일처럼 지목
+'%' 어떤것이 와도 괜찮다는 뜻 
+
+C:\Users\CPB06GameN>mysql
+
+'mysql'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+
+경로이동 
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+bin( binary) : 실행파일들을 모아놓는 곳
+
+
+CMD 에서 mysql 이용하기
+cd 이후 경로 붙여서 접속하기 
+
+관리자 설정 
+사용자 접속가능하도록 만들어줌
+
+환 > 시스템 환경변수 클릭>
+
+mysql> create user ace
+mysql> grant all privilieages on acedb.* to ace@'%' with grant option;
+mysql> flush priviliage
+
+#ace 계정으로 접속하기
+
+>mysql -u ace -p1234
+***********************************************
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 156
+Server version: 8.0.25 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bdb                |
+| information_schema |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.02 sec)
+
+mysql> create database aadb;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create database jjdb;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bdb                |
+| information_schema |
+| jjdb               |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> create database aadb;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| aadb               |
+| bdb                |
+| information_schema |
+| jjdb               |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> drop database aadb;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bdb                |
+| information_schema |
+| jjdb               |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.01 sec)
+
+mysql> create database acedb;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select user();
++----------------+
+| user()         |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| acedb              |
+| bdb                |
+| information_schema |
+| jjdb               |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> use mysql
+Database changed
+mysql> show tables;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| password_history                                     |
+| plugin                                               |
+| procs_priv                                           |
+| proxies_priv                                         |
+| replication_asynchronous_connection_failover         |
+| replication_asynchronous_connection_failover_managed |
+| role_edges                                           |
+| server_cost                                          |
+| servers                                              |
+| slave_master_info                                    |
+| slave_relay_log_info                                 |
+| slave_worker_info                                    |
+| slow_log                                             |
+| tables_priv                                          |
+| time_zone                                            |
+| time_zone_leap_second                                |
+| time_zone_name                                       |
+| time_zone_transition                                 |
+| time_zone_transition_type                            |
+| user                                                 |
++------------------------------------------------------+
+35 rows in set (0.01 sec)
+
+mysql> desc user;
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+| Field                    | Type                              | Null | Key | Default               | Extra |
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+| Host                     | char(255)                         | NO   | PRI |                       |       |
+| User                     | char(32)                          | NO   | PRI |                       |       |
+| Select_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Insert_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Update_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Delete_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Drop_priv                | enum('N','Y')                     | NO   |     | N                     |       |
+| Reload_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Shutdown_priv            | enum('N','Y')                     | NO   |     | N                     |       |
+| Process_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| File_priv                | enum('N','Y')                     | NO   |     | N                     |       |
+| Grant_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| References_priv          | enum('N','Y')                     | NO   |     | N                     |       |
+| Index_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Alter_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Show_db_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Super_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_tmp_table_priv    | enum('N','Y')                     | NO   |     | N                     |       |
+| Lock_tables_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Execute_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Repl_slave_priv          | enum('N','Y')                     | NO   |     | N                     |       |
+| Repl_client_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_view_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Show_view_priv           | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_routine_priv      | enum('N','Y')                     | NO   |     | N                     |       |
+| Alter_routine_priv       | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_user_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Event_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Trigger_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_tablespace_priv   | enum('N','Y')                     | NO   |     | N                     |       |
+| ssl_type                 | enum('','ANY','X509','SPECIFIED') | NO   |     |                       |       |
+| ssl_cipher               | blob                              | NO   |     | NULL                  |       |
+| x509_issuer              | blob                              | NO   |     | NULL                  |       |
+| x509_subject             | blob                              | NO   |     | NULL                  |       |
+| max_questions            | int unsigned                      | NO   |     | 0                     |       |
+| max_updates              | int unsigned                      | NO   |     | 0                     |       |
+| max_connections          | int unsigned                      | NO   |     | 0                     |       |
+| max_user_connections     | int unsigned                      | NO   |     | 0                     |       |
+| plugin                   | char(64)                          | NO   |     | caching_sha2_password |       |
+| authentication_string    | text                              | YES  |     | NULL                  |       |
+| password_expired         | enum('N','Y')                     | NO   |     | N                     |       |
+| password_last_changed    | timestamp                         | YES  |     | NULL                  |       |
+| password_lifetime        | smallint unsigned                 | YES  |     | NULL                  |       |
+| account_locked           | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_role_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Drop_role_priv           | enum('N','Y')                     | NO   |     | N                     |       |
+| Password_reuse_history   | smallint unsigned                 | YES  |     | NULL                  |       |
+| Password_reuse_time      | smallint unsigned                 | YES  |     | NULL                  |       |
+| Password_require_current | enum('N','Y')                     | YES  |     | NULL                  |       |
+| User_attributes          | json                              | YES  |     | NULL                  |       |
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+51 rows in set (0.01 sec)
+
+mysql> select count(*) from user;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select user from user;
++------------------+
+| user             |
++------------------+
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> select user from db;
++---------------+
+| user          |
++---------------+
+| mysql.session |
+| mysql.sys     |
++---------------+
+2 rows in set (0.01 sec)
+
+mysql> select user, db from db;
++---------------+--------------------+
+| user          | db                 |
++---------------+--------------------+
+| mysql.session | performance_schema |
+| mysql.sys     | sys                |
++---------------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql> create user ace@'%' identified by'1234';
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select user from user;
++------------------+
+| user             |
++------------------+
+| ace              |
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+5 rows in set (0.00 sec)
+
+mysql> grant all privileges on acedb.* to ace@'%' with grant option;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| acedb              |
+| bdb                |
+| information_schema |
+| jjdb               |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.01 sec)
+
+mysql> use k db;
+ERROR 1049 (42000): Unknown database 'k'
+mysql> use kdb;
+ERROR 1049 (42000): Unknown database 'kdb'
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| acedb              |
+| bdb                |
+| information_schema |
+| jjdb               |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+[ 강사님 노트 정리 mysql 계정(account) 만들기]--------------------------------------------
+
+*******************************************
+계정(account)
+id : ace
+pw : 1234
+사용DB : acedb
+
+*******************************************
+mysql> use mysql
+mysql> show  tables;
+mysql> create  database acedb;
+mysql> show  databases;
+
+mysql> create  user ace@'%' identified by '1234'; 
+#ace@ kbs@kbs.co.kr 이메일 처럼 kbs가 ID, @이후 주소값(host name) 
+local host name=127.0.0.1 *불변 
+local host port=3306
+''(single quote)는 문자열 감싸기 위해 사용
+
+mysql> grant all privileges on acedb.*  to  ace@'%' with grant option; 
+#사용자 ace에게 acedb에 접근해서 모든 권한을 행사할 수 있는 권한을 주라는 명령
+
+mysql> flush  privileges; #바로 적용시켜라
+
+---------------------------------------------------------------------------------
+
+ace 계정으로 접속하기
+환경변수에 등록하기 
+시스템 path에 C:\Program Files\MySQL\MySQL Server 8.0\bin  등록 
+
+명령프롬프트에서 접속
+
+>mysql  -u  ace  -p1234
+
+--< mySQL workbench 실행 >--------------------------------------------------
+
+커서 뒤 ctrl + enter 하나씩 확인가능
+ctrl + shit + enter 
+
+왼쪽상단 perfomance 메뉴 살펴보기
+현재 DB 상태 볼수 있음
+
+(시스템 모델링을 튜닝 해주는 고급 기술 전문가들)
+
+
+------ex--------------
+-- create database rootdb;
+use rootdb;
+show databases;
+-- create table book(
+-- 	title char(30), 
+-- 	author varchar(30), -- variable (가변폭) --
+-- 	price int);
+												
+
+desc book;
+insert into book values('주식하는 마음', '홍진채', 17000);
+insert into book values('MySQL이다', '우재남', 30000);
+insert into book values('주식하는 마음', '홍진채', 17000);
+select * from book;
+
+show tables;
+alter table book rename b2;
+alter table b2 add press char(20);
+desc b2;
+--------------------
+workbench에 주석처리 -- 
+title char(30),  ---  고정폭(쇽도 빠르나)
+author varchar(30), --가변폭 (더 효율적?! 왜?)
+
+테이블 이름 정하고 > 필드네임 정해준 후 > 데이터형태(자료형) 정해줌
+alter table
+
+
+=== DB writing order ==
+use world;
+show tables;
+desc city;
+select count(*) from city;
+
+select * from city limit 100, 10; #101번 data 부터 10개 가져오는 것 ie. '게시판 페이징' - 한페이지에 몇개의 글이 보이는지 설정하는 것 
+desc # 자료 구조를 볼때
+ 
