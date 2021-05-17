@@ -1,6 +1,7 @@
 #공공데이터 포털 - https://www.data.go.kr/
 repl.it - https://replit.com/
 kaggle - https://www.kaggle.com/competitions
+!!! kaggle t academy 강의 듣기!! -https://www.youtube.com/watch?v=Kj0XCsKkhCs&list=PLC_wC_PMBL5PRn6LjAiE0P0vGQpZUpEo_
 
 계정(Id, pw)
 port:3306
@@ -17,3 +18,161 @@ naver 30GB
 
 MySQL에서 만들수 있는 구조들:
 table, view, index, funtion, stored procedure, trigger
+
+
+
+< DDL (Data Definition Language) > mysql
+create table <table-name>
+drop table <table-name>
+alter table <table-name>
+rename 
+
+#DML (Data Manipulation Language) - CRUD (create/read/update/delete) 사용자들이 사용
+insert (create)
+update
+delete 
+select (read)
+
+# MySQL contstraints 제약상
+空- Null - NAN - None (데이터가 없다) vs. 0은 숫자 데이터가 있는것! 차이점임! <==> not null. isnull (if null? 공백이니?) 
+
+NOT NULL - 
+UNIQUE - 사회보장번호 주민번호 등 고유인식번호
+PRIMARY KY - NOT NULL + UNIQUE 
+FOREIN KEY - 
+
+INSERT into table
+UPDATE set table
+DELETE table name
+SELECT <field list... from table>
+where 
+limit
+order by
+SELECT 
+
+#DCL (Data Control Language)
+grant
+revoke
+commit 실제 적용
+rollback
+
+transaction 작업의 단위 ex. 은행송금
+
+
+
+========== MySQL =============================================
+
+select user();
+show databases;
+select now();
+/*root 고유 권한
+create database mydb; 
+-- drop database mydb;
+-- 한줄주석
+/* 여러 줄 주석 */
+
+use acedb; 
+show tables;
+create table Man(
+	name char(20), 
+	year int);
+
+desc Man;
+alter table Man drop habit;
+desc Man;
+insert into Man(name, year) values('Kim', 2000);
+insert into Man(name, year) values('choi', 1995);
+insert into Man(name) values('park');
+insert into Man(year) values(23);
+insert into Man(name, year) values(22, 'Jun');
+
+
+
+select * from Man; --  data 만 지우고 틀(table은 남아있음)
+delete from Man where name = 'Kim';
+drop table Man;
+show tables;
+drop table Man;
+alter table Man add habit char(20);
+alter table Man rename person;
+
+use acedb;
+
+-- drop table s;
+
+create table if not exists s(
+	id int auto_increment primary key,
+    name varchar(20),
+    kor tinyint,
+    eng tinyint,
+    mat tinyint);
+    
+insert into s(id, name, kor, eng, mat) values(101, '이순신',85,87,90);
+insert into s(name, kor, eng, mat) values('강감찬',75,80,90);
+insert into s(name, kor, eng, mat) values('한석봉',99,98,99);
+insert into s(name, kor, eng, mat) values('황진이',35,45,20);
+insert into s(name, kor, eng, mat) values('안중근',90,85,90);
+insert into s(name, kor, eng, mat) values('박문수',95,98,96);
+insert into s(name, kor, eng, mat) values('임꺽정',15,35,45);
+insert into s(name, kor, eng, mat) values('김정호',90,95,80);
+insert into s(name, kor, eng, mat) values('정몽주',90,90,95);
+insert into s(name, kor, eng, mat) values('양주종',50,45,60);
+
+desc s;
+select count(*) from s;
+select * from s;
+
+select name, eng from s;
+select name, eng from s limit 5;
+select name, eng from s limit 5, 3;
+select name, eng from s order by name;
+select name, eng from s order by name asc; -- 기본값
+select name, eng from s order by name desc;
+select name, eng, mat from s order by eng desc, mat asc ;
+
+select name as '이름', kor as '국어' from s;
+select name as '이름', min(kor) as '국어' from s;
+select max(kor), min(kor), sum(kor), avg(kor) from s; -- 집계함수
+
+
+====오후수업=====
+
+select * from s5 where avg >= 90;
+select * from s5 where 70 <= avg <= 80;
+select * from s5 where (80 <= avg) and (avg <= 90);
+select * from s5 where avg between 80 and 90 -- 80 <= avg <=90
+
+=== world db data analysis ====
+
+use world;
+show tables; 
+desc city;
+select count(*) from city;
+select * from city where countrycode = 'kor';
+select * from city where countrycode = 'usa';
+desc country;
+select count(*) from country;
+
+
+use world;
+show tables; 
+desc city;
+select count(*) from city;
+select * from city where countrycode = 'kor';
+select * from city where countrycode = 'usa';
+desc country;
+select count(*) from country;
+desc countrylanguage;
+select count(*) from countrylanguage;
+select * from city;
+
+select * from city where name in ('seoul', 'new york');
+select * from city where CountryCode =
+	(select CountryCode from city where name = 'seoul');
+
+select * from city where CountryCode ='Kor';
+	(select CountryCode from city where name = 'seoul');
+select * from city order by population desc limit 10;
+
+select countrycode, Max(population) from city 
+group by CountryCode having max(population) > 7000000; 
