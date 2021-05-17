@@ -193,3 +193,48 @@ full outer join
 == 2진수 연산법 == 
 http://www.binaryconvert.com/convert_signed_char.html?decimal=045049
 
+
+=== MySQL Workbench에서 World DB를 이용한 SQL 구문 사용법 익히기 ==
+
+use world;
+show tables; 
+desc city;
+select count(*) from city;
+select * from city where countrycode = 'kor';
+select * from city where countrycode = 'usa';
+desc country;
+select count(*) from country;
+desc countrylanguage;
+select count(*) from countrylanguage;
+select * from city;
+
+select * from city where name in ('seoul', 'new york');
+select * from city where CountryCode =
+	(select CountryCode from city where name = 'seoul');
+
+select * from city where CountryCode ='Kor';
+	(select CountryCode from city where name = 'seoul');
+select * from city order by population desc limit 10;
+
+select countrycode, name, Max(population) from city; 
+	group by CountryCode having max(population) > 9000000; 
+
+select * from city;
+join country on city.CountryCode = country.code;
+
+select CountryCode from city;
+select Code from country;
+
+desc city;
+desc counry;
+ -- table &  field name
+ 
+select city.Name, city.CountryCode, city.Population, ccountry *GNP
+from city
+join country
+on city.CountryCode = contetnt.code;
+
+ 
+== colab 에서 txt, cvs 파일 불러오기 ==
+import pandas as pd
+d = pd.read_csv('/content/sample_data/ss50.csv')
