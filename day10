@@ -1,6 +1,8 @@
+colab
 #공공데이터 포털 - https://www.data.go.kr/
 repl.it - https://replit.com/
 kaggle - https://www.kaggle.com/competitions
+
 !!! kaggle t academy 강의 듣기!! -https://www.youtube.com/watch?v=Kj0XCsKkhCs&list=PLC_wC_PMBL5PRn6LjAiE0P0vGQpZUpEo_
 
 계정(Id, pw)
@@ -176,3 +178,18 @@ select * from city order by population desc limit 10;
 
 select countrycode, Max(population) from city 
 group by CountryCode having max(population) > 7000000; 
+
+
+=======SQL JOIN 4:08)
+Join 
+정규화 - 필요한 데이터 테이블이 나눠진 것 
+모델링 - 핵심 데이터를 추출해 테이블로 구성하는 것
+
+inner join 
+left other join 
+right outher join
+full outer join
+
+== 2진수 연산법 == 
+http://www.binaryconvert.com/convert_signed_char.html?decimal=045049
+
