@@ -1,0 +1,17 @@
+<<< 복습 >>> 
+
+JOIN
+
+정규화(NF): 테이블로 분리 시키는 것
+필요 이유 : 
+
+
+Google Colab 기본 사용법
+방향키 : 셀간 이동
+enter : 편집모드
+ctrl + Enter : 셀 실행
+shift + Enter : 셀 실행 + 다음 셀 선택
+
+ctrl + M D: 셀 삭제
+ctrl + M K : 셀 위로 이동
+Ctrl + M J : 셀 아래로 이동
