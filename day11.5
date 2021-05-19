@@ -1,0 +1,112 @@
+<<< 주요 개념 복습>>> 
+
+이진연산
+
+비트(데이터를 저장할 수 있는 크기)연산
+
+2 ** 8 #8 bit(비트) =  1byte(바이트)
+256
+>>> 2 ** 16 = 2byte
+65536
+>>> 2 ** 32 = 4byte
+42,(억)9496,(만)7296
+-21억~ 21억
+
+>>> 2 ** 64 = 8byte
+18446744073709551616
+
+1844,(경)6744(조),0737(억),0955(만),1616
+-922경 ~ 922 감당할수 있는 데이터 그릇 크기 
+
+
+shift 연산
+
+indexing [ start : end -1]
+
+slicing
+
+broadcasting
+
+serices 1차원 배열 / dataframe 2차원 배열
+
+
+축
+axis = 1  행기준, axis = 0 열 기준
+
+
+
+RDB(Relational Data Base) 효율적인 컴퓨터 자료 처리에 더 유리합니다.
+
+정규화 - NF 로 분리하는 것 = Noll Nalv, None ex) 전화번호 집, 거주
+
+Pandas - 금융 DB 데이터 다루는데 최적화 Numpy는 그 부속품
+
+array
+
+자료형
+list, tuple, set, dict (paired key, value)
+
+
+#comprhenson 컴프리헨슨
+
+>>> t = [i*3 for i in range(1, 11) ]
+>>> t
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> len(t)
+10
+>>> t[:]
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> t[2:]
+[9, 12, 15, 18, 21, 24, 27, 30]
+>>> t[:5]
+[3, 6, 9, 12, 15]
+>>> t[3:6]
+[12, 15, 18]
+
+# dir(np1) 
+# help(np1)
+
+
+
+1,000,000
+100,0000
+
+#선생님 공부법
+함수(method)를 복사해서 처음보는 내용 메모장 붙여서 천천히 읽어보기, 
+다 알필요는 없으나 중복되는 것들을도 많으나 바로 이해할 수 있는 size sort, max, min, mean등 이해 제외하고 알아보는 방법
+
+
+Tot = 0
+>>> for i in range(10):
+	Tot += i
+
+	
+>>> Tot /len(t)
+4.5
+>>> t
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> t*3
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> t +10
+
+>>> type(t)
+<class 'list'>
+>>> dir(t)
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+
+
+>>> t
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> len(t)
+10
+>>> import sys
+>>> sys.getsizeof(t)
+184
+>>> t * 2
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> sys.getsizeof(t*2)
+216
+
+
