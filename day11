@@ -129,23 +129,107 @@ Tot = 0
 [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
 >>> sys.getsizeof(t*2)
 216
+
+== 오전 과제 9구단 만들기 ==
+import numpy as np
+
+gdan = [[x, y, x*y] for x in range(2,10) for y in range(1,10)]
+
+ngdan = np.array(gdan, dtype = np.int16)
+
+
+
 =========오후수업======
 
-이진연산
-broadcasting
+#이진연산
+#broadcasting
 
 
-======ipython=================
-Microsoft Windows [Version 10.0.19042.985]
-(c) Microsoft Corporation. All rights reserved.
+import numpy as np
+import pandas as pd
 
-C:\Users\CPB06GameN>ipython
-Python 3.9.4 (tags/v3.9.4:1f2e308, Apr  6 2021, 13:40:21) [MSC v.1928 64 bit (AMD64)]
-Type 'copyright', 'credits' or 'license' for more information
-IPython 7.23.1 -- An enhanced Interactive Python. Type '?' for help.
+!pwd
 
-In [1]: import numpy as np
+!mkdir aa bb cc dd
 
-In [2]: import pandas as pd
+!ls
 
-In [3]:
+!nl  /etc/issue.net
+
+!uname -r
+
+!ls
+
+!ls sample_data/
+
+type(pd)
+
+s1 = pd.Series([1, 2, 3, 4])
+
+s2 = pd.Series(['서울', '부산', '대구', '광주'])
+
+s1.dtype
+
+s2.dtypes
+
+type(s1)
+
+type(s2)
+
+s3 = pd.Series([15, 45, 75, 35, 25])
+
+s3.sum()
+
+s3.describe
+
+s3.mean()
+
+
+dir(s3)
+
+s3.shape
+
+s3.size
+
+s3
+
+s3.sub(5)
+
+s3 - 15
+
+s3 + 100
+
+s3.add(200)
+
+k = [2, 3, 4, 5]
+
+
+for idx, value in enumerate(k):
+    print(idx, value)
+
+s2
+
+for idx, value in enumerate(s2):
+    print(idx, value)
+
+s2
+
+s2.ndim
+
+s4 = ['설악산', '지리산', '덕유산', '소백산', '한라산']
+
+s4 = pd.Series(['설악산', '지리산', '덕유산', '소백산', '한라산'])
+
+s4
+
+s5 = pd.Series(['설악산', '지리산', '덕유산', '소백산', '한라산'], index=['A', 'B', 'C', 'D', 'E'])
+
+s5
+
+s3
+
+s22 = pd.DataFrame(s5)
+
+s22
+
+type(s22)
