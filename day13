@@ -1,0 +1,138 @@
+# Mount Data to google drive
+https://github.com/wesm/pydata-book
+
+scalar 3
+vector [2, 3, 4]
+matrix [ [1, 2], [3, 4] ]
+tensor [ [[1,2], [3,4]], [[5,6], [7,8]] ]
+n-tensor
+Nan, NULL, None - 空 데이타 누락 -- 결측치
+
+정규 표현식
+처음 ^(카렛) : ^a, ^ac 
+끝 $(): exe$
+0번 이상 중복 * : ab*, like '이%' 괴랄한 표현?
+한 문자 와일드카드 _ : (어떤게 와도 좋다) a_b, a__b, 문자열 검색시에 쓰임
+
+전공용어(2000개 정도)
+
+JOIN: 여러 테이블에서 필요한 내용만 추출
+MERGE: 병합 합친다 merge sorting.. (PULL OUTER JOIN) 컴퓨터 과부하...
+
+#남을 가르치는 방법이 제일 좋은 공부 방법 
+팀플에서 기회로 사용
+
+
+
+# 잘된 시각화 예제 참고해서 내가 표현하고자 하는 데이터 시각화 하기
+https://www.tableau.com/ko-kr/learn/articles/best-beautiful-data-visualization-examples
+https://seaborn.pydata.org/ #seaborn 
+https://demo.bokeh.org/
+https://www.youtube.com/channel/UCs-fnRl8JjhbMax7wRb9jwA
+https://plotly.com/
+folium
+
+#replit.com 리눅스 개발환경 경험해보기
+create bash on https://replit.com/
+
+cd
+history
+whoami
+pwd 
+ctrl + l = clear
+ls -???
+d --- directory folder in linux = folder in window setting
+- file
+
+
+
+d directory
+
+file__color
+
+cd =집으로 
+ls --color=auto
+
+apt list | grep java
+ctrl + c 나가기
+
+
+=======
+cd
+mkdir b1 l
+cd b1
+
+^D EOF end of file
+^C 
+
+concatenate 연쇄시키다 
+
+cat -nl(number line) a1 
+
+데이터 활용법
+
+
+* linux 필수 명령어
+ls - 디렉터리 내용보기
+pwd - 현재 위치 확인
+whoami - 나는 누구?
+cd - change directory
+mkdir - make direcory 
+rmdir - remove directory
+cat - 파일내용 보기
+nl - 행번호 붙여 파일 내용 보기
+clear - 화면 지우기 ^L 
+
+
+
+sqlight python 파일만들기  
+강력한 기능
+어떤 가공된 데이터든 > 파일명 으로 파일로 저장 가능!
+
+=======
+cd
+mkdir b1 l
+cd b1
+
+
+!!!!대소문자 가림!!!!
+*자주 내는 오류 구문
+
+cannot create directory
+cannot found di
+
+다운받은 책 소스 자료 40메가 압축 풀어 드라이브 올려놓기
+확인  > 코렙에서 마운트하기 
+
+
+### Install Juypeter lab
+
+open <Window powershell>
+pip install jupyter lab
+
+
+2^8 == bit 8개 = 256(개의 경우의 수) = 1바이트
+정수 : -128~ 127
+양수 : 0 ~ 255
+
+<수의 표현 방식>
+1) 부호와 절대 값
+2) 1의 보수
+3) 2의 보수 (0 양수 , 1 음수) 
+
+-4 ~ 3
+
+000 0
+001 1
+010 2
+011 3
+ 
+100 0
+101 -1
+110 -2
+111 -3
+
+
+진법, 진수 : 한 자리수로 표현 가능한 경우의 수
+2진수, 8진수, 16진수 (4byte)
+
